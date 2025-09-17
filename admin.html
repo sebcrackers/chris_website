@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Dashboard - SFU GSA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body{font-family:Roboto,system-ui;margin:0;background:#f8fafc;color:#0b2340}
+    .container{max-width:960px;margin:20px auto;padding:20px;background:#fff;border-radius:12px;box-shadow:0 6px 18px rgba(11,103,194,0.08)}
+    h1{color:#054b8b;margin-bottom:16px}
+    label{font-weight:600;margin-top:10px;display:block}
+    input,textarea{width:100%;padding:10px;margin-top:6px;border:1px solid #ccc;border-radius:8px}
+    textarea{min-height:120px}
+    button{background:linear-gradient(180deg,#0b67c2,#054b8b);color:#fff;padding:10px 16px;border:none;border-radius:8px;cursor:pointer;font-weight:600}
+    button:hover{opacity:0.9}
+    .posts{margin-top:20px;display:flex;flex-direction:column;gap:10px}
+    .post{display:flex;gap:10px;background:#f9fbff;border:1px solid #eee;padding:10px;border-radius:8px;align-items:center}
+    .post img{width:100px;height:70px;object-fit:cover;border-radius:6px}
+    .post-info{flex:1}
+    .actions{display:flex;gap:8px}
+    .small{color:#6b7280;font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Dashboard</h1>
+
+    <!-- Post form -->
+    <div>
+      <label>Headline</label>
+      <input type="text" id="postHead" placeholder="Headline" />
+      <label>Image</label>
+      <input type="file" id="postImage" accept="image/*" />
+      <label>Body</label>
+      <textarea id="postBody" placeholder="Body text..."></textarea>
+      <button id="createPost" style="margin-top:10px">Create Post</button>
+    </div>
+
+    <h2 style="margin-top:24px">Existing Posts</h2>
+    <div id="adminPosts" class="posts"></div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'sfu_gsa_posts_v1';
+
+    function loadPosts(){
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    }
+
+    function savePosts(posts){
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+    }
+
+    function genId(){ return 'p_' + Math.random().toString(36).slice(2,9); }
+
+    function renderPosts(){
+      const wrap = document.getElementById('adminPosts');
+      wrap.innerHTML = '';
+      const posts = loadPosts().sort((a,b)=>b.ts - a.ts);
+      if(posts.length === 0){
+        wrap.innerHTML = '<p class="small">No posts yet.</p>';
+        return;
+      }
+      posts.forEach(p=>{
+        const div = document.createElement('div');
+        div.className = 'post';
+        div.innerHTML = `
+          <img src="${p.img || 'https://via.placeholder.com/100x70?text=No+Image'}" />
+          <div class="post-info">
+            <strong>${p.headline}</strong>
+            <div class="small">${new Date(p.ts).toLocaleString()}</div>
+          </div>
+          <div class="actions">
+            <button onclick="deletePost('${p.id}')">Delete</button>
+          </div>
+        `;
+        wrap.appendChild(div);
+      });
+    }
+
+    document.getElementById('createPost').addEventListener('click', ()=>{
+      const head = document.getElementById('postHead').value.trim();
+      const body = document.getElementById('postBody').value.trim();
+      const fileInput = document.getElementById('postImage');
+      if(!head || !body){ alert('Headline and body are required'); return; }
+
+      const reader = new FileReader();
+      reader.onload = function(e){
+        const posts = loadPosts();
+        posts.push({
+          id: genId(),
+          headline: head,
+          body: body,
+          img: e.target.result,
+          ts: Date.now()
+        });
+        savePosts(posts);
+        renderPosts();
+        document.getElementById('postHead').value='';
+        document.getElementById('postBody').value='';
+        fileInput.value='';
+      };
+      if(fileInput.files[0]){
+        reader.readAsDataURL(fileInput.files[0]);
+      } else {
+        const posts = loadPosts();
+        posts.push({ id: genId(), headline: head, body: body, img:'', ts: Date.now() });
+        savePosts(posts);
+        renderPosts();
+        document.getElementById('postHead').value='';
+        document.getElementById('postBody').value='';
+      }
+    });
+
+    function deletePost(id){
+      let posts = loadPosts();
+      posts = posts.filter(p=>p.id!==id);
+      savePosts(posts);
+      renderPosts();
+    }
+
+    renderPosts();
+  </script>
+</body>
+</html>

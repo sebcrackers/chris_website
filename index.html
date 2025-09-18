@@ -12,10 +12,10 @@
     :root{
       --blue: #0b67c2;
       --navy: #054b8b;
-      --muted: #6b7280;
-      --bg: #ffffff;
-      --glass: rgba(255,255,255,0.75);
-      --card-shadow: 0 6px 18px rgba(11,103,194,0.08);
+      --muted: #b8c2d6;
+      --bg: #4d5d84;
+      --glass: rgba(77,93,132,0.85);
+      --card-shadow: 0 6px 18px rgba(0,0,0,0.15);
       --max-width: 1100px;
     }
     *{box-sizing:border-box}
@@ -23,7 +23,7 @@
     body{
       margin:0;
       font-family: Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial;
-      color:#0b2340;
+      color:#e0ddd5;
       background:var(--bg);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
@@ -35,49 +35,49 @@
 
     /* NAV */
     header{
-      position:sticky;top:0;z-index:60;
+      position:fixed; width: 100%;top:0;z-index:10000;
       backdrop-filter: blur(6px);
-      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
-      border-bottom:1px solid rgba(11,103,194,0.06);
+      background: linear-gradient(180deg, rgba(77,93,132,0.9), rgba(77,93,132,0.7));
+      border-bottom:1px solid rgba(255,255,255,0.1);
     }
     .nav{
       display:flex;align-items:center;justify-content:space-between;height:72px;
       gap:16px;
     }
     .logo{
-      display:flex;align-items:center;gap:10px;font-weight:700;color:var(--navy);
+      display:flex;align-items:center;gap:10px;font-weight:700;color:#fff;
       text-decoration:none;
     }
     .logo .mark{
       width:44px;height:44px;border-radius:8px;
-      background:linear-gradient(180deg,#fff,#e6f0ff);
+      background:linear-gradient(180deg,#4d5d84,#3a4869);
       display:flex;align-items:center;justify-content:center;
       border:2px solid var(--blue);
-      font-weight:700;color:var(--blue);
+      font-weight:700;color:#fff;
       font-size:18px;
     }
 
     nav ul{display:flex;align-items:center;gap:12px;list-style:none;margin:0;padding:0}
-    nav a{color:var(--navy);text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:500}
-    nav a:hover{background:rgba(11,103,194,0.06)}
+    nav a{color:#fff;text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:500}
+    nav a:hover{background:rgba(255,255,255,0.1)}
 
     /* Dropdown */
     .dropdown{position:relative}
     .dropbtn{display:flex;gap:6px;align-items:center;cursor:pointer}
     .dropdown-menu{
       position:absolute;left:0;top:calc(100% + 8px);min-width:180px;
-      background:white;border:1px solid rgba(11,103,194,0.08);box-shadow:var(--card-shadow);
+      background:#4d5d84;border:1px solid rgba(255,255,255,0.1);box-shadow:var(--card-shadow);
       border-radius:10px;padding:8px;display:none;flex-direction:column;z-index:80;
     }
-    .dropdown-menu a{padding:8px 12px;border-radius:6px;color:var(--navy);font-weight:500}
-    .dropdown-menu a:hover{background:rgba(11,103,194,0.04)}
+    .dropdown-menu a{padding:8px 12px;border-radius:6px;color:#fff;font-weight:500}
+    .dropdown-menu a:hover{background:rgba(255,255,255,0.1)}
 
     /* CTA / icons */
     .nav-right{display:flex;align-items:center;gap:12px}
     .btn{
-      background:linear-gradient(180deg,var(--blue),var(--navy));
-      color:white;padding:10px 14px;border-radius:10px;border:none;font-weight:600;cursor:pointer;
-      box-shadow:0 6px 18px rgba(11,103,194,0.12)
+      background:#e0ddd5;
+      color:#4d5d84;padding:10px 14px;border-radius:10px;border:none;font-weight:600;cursor:pointer;
+      box-shadow:0 6px 18px rgba(0,0,0,0.15)
     }
     .icon-btn{background:transparent;border:none;cursor:pointer;padding:6px;border-radius:8px}
     .icon-btn svg{display:block}
@@ -90,10 +90,10 @@
     .hero::before{
       content:"";
       position:absolute;inset:0;
-      background-image: url('https://i.ibb.co/fYdVSW21/82795832.webp');
+      background-image: url('https://lh3.google.com/u/0/d/1qmLZXlSDqu1IiMhz9BVPCt3lcr8ZxAJ9=w1867-h983-iv2?auditContext=forDisplay');
       background-size:cover;background-position:center;
       background-attachment: fixed;
-      filter: blur(4px) brightness(0.85);
+      filter: brightness(0.85);
       transform: scale(1.05);
       z-index:0;
     }
@@ -106,17 +106,45 @@
     .hero .hero-cta{display:inline-block;background:rgba(255,255,255,0.12);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.18);color:white;padding:10px 16px;border-radius:10px;font-weight:600}
 
     /* Sections */
-    section{padding:48px 0;border-top:1px solid rgba(11,103,194,0.03)}
-    .section-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;max-width:var(--max-width);margin:0 auto;padding:0 20px}
-    .section-grid .text h2{margin:0 0 12px;color:var(--navy)}
-    .section-grid .text p{color:var(--muted);margin:0}
-    .img-card{width:100%;height:280px;border-radius:12px;background-size:cover;background-position:center;border:1px solid rgba(11,103,194,0.04);box-shadow:var(--card-shadow)}
+    section{padding:48px 0;border-top:1px solid rgba(255,255,255,0.05)}
+    /* Stretch section full width */
+.section-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0; /* remove spacing between text and image */
+  align-items: stretch;
+  max-width: 100%;  /* stretch full width */
+  margin: 0;         /* no centering */
+  padding: 0;        /* remove side padding */
+}
+
+/* Text box full height with no rounded edges */
+.section-grid .text {
+  background: var(--glass); /* optional background so text is readable */
+  padding: 40px;
+  border-radius: 0; /* remove rounded edges */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Image full height with no rounded edges */
+.img-card {
+  width: 100%;
+  height: auto;
+  min-height: 350px;
+  border-radius: 0; /* remove rounded edges */
+  background-size: cover;
+  background-position: center;
+  border: none;
+  box-shadow: none;
+}
 
     /* blog cards */
     .posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:var(--max-width);margin:0 auto;padding:0 20px}
-    .post{background:white;border-radius:12px;padding:12px;border:1px solid rgba(11,103,194,0.04);box-shadow:var(--card-shadow);display:flex;flex-direction:column;gap:8px}
-    .post .thumb{height:140px;border-radius:8px;background:#f3f7ff;background-size:cover;background-position:center;border:1px solid rgba(11,103,194,0.03)}
-    .post h3{margin:6px 0 0;font-size:16px;color:var(--navy)}
+    .post{background:#4d5d84;border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.1);box-shadow:var(--card-shadow);display:flex;flex-direction:column;gap:8px}
+    .post .thumb{height:140px;border-radius:8px;background:#3a4869;background-size:cover;background-position:center;border:1px solid rgba(255,255,255,0.08)}
+    .post h3{margin:6px 0 0;font-size:16px;color:#fff}
     .post p{margin:0;color:var(--muted);font-size:14px;flex:1}
 
     .see-more{display:block;margin:18px auto 0;text-align:center}
@@ -135,13 +163,14 @@
       position: absolute;
       top: -60px; /* Adjust this value to control how much shows above the section */
       left: 0;
+      bottom: 300px;
       width: 100%;
-      height: 100px; /* Height of the peek area */
-      background-image: url('https://i.ibb.co/fYdVSW21/82795832.webp');
+      height: 300px; /* Height of the peek area */
+      background-image: url('https://lh3.google.com/u/0/d/1iaCY2leDelKpxbrgApH3__nxFo0ANDau=w1867-h983-iv4?auditContext=forDisplay');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      filter: blur(4px) brightness(0.85);
+      filter: brightness(0.85);
       z-index: -1;
       mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
       -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
@@ -161,14 +190,14 @@
     }
 
     /* Admin / forms */
-    .page{max-width:var(--max-width);margin:24px auto;padding:24px;background:var(--glass);border-radius:12px;border:1px solid rgba(11,103,194,0.04)}
+    .page{max-width:var(--max-width);margin:24px auto;padding:24px;background:var(--glass);border-radius:12px;border:1px solid rgba(255,255,255,0.1)}
     .form-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px}
-    label{display:block;font-weight:600;margin-bottom:6px;color:var(--navy)}
-    input[type="text"], input[type="password"], textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(11,103,194,0.08)}
+    label{display:block;font-weight:600;margin-bottom:6px;color:#fff}
+    input[type="text"], input[type="password"], textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.1); color:#fff}
     textarea{min-height:140px;resize:vertical}
     .small{font-size:13px;color:var(--muted)}
 
-    .admin-post{display:flex;gap:12px;align-items:flex-start;background:white;padding:12px;border-radius:10px;border:1px solid rgba(11,103,194,0.04);box-shadow:var(--card-shadow)}
+    .admin-post{display:flex;gap:12px;align-items:flex-start;background:#4d5d84;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);box-shadow:var(--card-shadow)}
     .admin-post img{width:100px;height:70px;object-fit:cover;border-radius:6px}
     .admin-actions{margin-left:auto;display:flex;gap:8px}
 
@@ -186,24 +215,28 @@
       <nav>
         <ul>
           <li class="dropdown" id="aboutDropdown">
-            <div class="dropbtn" tabindex="0"><a style="cursor:pointer">About Us ▾</a></div>
-            <div class="dropdown-menu" id="aboutMenu" aria-hidden="true">
+            <div class="dropbtn"><a style="cursor:pointer">About Us ▾</a></div>
+            <div class="dropdown-menu" id="aboutMenu">
               <a href="#who" class="menu-link">Who We Are</a>
               <a href="#board" class="menu-link">Board</a>
               <a href="#constitution" class="menu-link">Constitution</a>
             </div>
           </li>
-          <li><a href="#blog" id="newsLink">News / Blog</a></li>
+          
+          <li class="dropdown" id="commDropdown">
+            <div class="dropbtn"><a style="cursor:pointer">Communications ▾</a></div>
+            <div class="dropdown-menu" id="commMenu">
+              <a href="#home-blog" class="menu-link">Latest News</a>
+              <a href="#coming-soon" class="menu-link">Contact Us</a>
+              <a href="#coming-soon" class="menu-link">Instagram</a>
+            </div>
+          </li>          
+          <li><a href="#blog" id="newsLink">News</a></li>
         </ul>
       </nav>
 
       <div class="nav-right">
-        <button class="icon-btn" id="instTop" title="Instagram (coming soon)">
-          <!-- small instagram svg -->
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden><rect width="24" height="24" rx="6" fill="#fff"/><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z" stroke="#0b67c2" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3.2" stroke="#0b67c2" stroke-width="1.2"/><circle cx="17.3" cy="6.7" r="0.6" fill="#0b67c2"/></svg>
-        </button>
-
-        <button class="btn" id="membershipBtn">Become a Member</button>
+        <button class="btn" id="membershipBtn" style="border-radius: 0;">Become a Member</button>
       </div>
     </div>
   </header>
@@ -212,9 +245,8 @@
   <main id="mainContent" role="main">
     <section class="hero" id="home">
       <div class="overlay">
-        <h1>Simon Fraser University Greek Student Association</h1>
-        <p class="muted">Building community, tradition, and fellowship on campus.</p>
-        <a href="#coming-soon" class="hero-cta" id="heroInstaBtn">Instagram</a>
+        <h1>Simon Fraser University:</br> Greek Student Association</h1>
+        <img src="https://lh3.google.com/u/0/d/1byEKX0F_rcZn6eYNQ4q1eqrK2cn4j8uz=w1867-h983-iv1?auditContext=prefetch" style="height: 80px;">
       </div>
     </section>
 
@@ -223,19 +255,21 @@
       <div class="section-grid">
         <div class="text">
           <h2>Who We Are</h2>
-          <p>We are a student organization dedicated to creating community and cultural experiences that celebrate Greek tradition while supporting academic success and student wellbeing. Our events include socials, mentorships, and campus outreach initiatives.</p>
+          <p>Learn more about Simon Fraser University Greek Student Association.</p>
+          <button class="btn" style="width: 30%; background-color:#4d5d84; color:#e0ddd5; border-color: #e0ddd5; border: 1px;">Learn More</button>
         </div>
-        <div class="img-card" style="background-image:url('https://i.ibb.co/357dbXw0/slide-greece-greek-islands-santorini.jpg')"></div>
+        <div class="img-card" style="background-image:url('https://lh3.google.com/u/0/d/16OWXtTruF7FOwrfTTzSHcHhADm4nnJbj=w1867-h983-iv2?auditContext=forDisplay')"></div>
       </div>
     </section>
 
     <!-- Board -->
     <section id="board">
       <div class="section-grid">
-        <div class="img-card" style="background-image:url('https://i.ibb.co/1YFJMntj/greece-history-flags-1-1280.webp')"></div>
+        <div class="img-card" style="background-image:url('https://lh3.google.com/u/0/d/1gMFNKRUUeydZobsZwRqCWlFZsJWsNB2y=w1867-h983-iv2?auditContext=forDisplay')"></div>
         <div class="text">
           <h2>Board</h2>
           <p>Our board is a group of elected students responsible for programming, membership, and governance. We operate transparently and welcome involvement from all members of the student body.</p>
+          <button class="btn" style="width: 30%; background-color:#4d5d84; color:#e0ddd5; border-color: #e0ddd5; border: 1px;">Learn More</button>
         </div>
       </div>
     </section>
@@ -246,8 +280,9 @@
         <div class="text">
           <h2>Constitution</h2>
           <p>Our constitution outlines membership rights, board responsibilities, and the processes that ensure accountability and fairness across all activities. Contact us for a full copy or to request amendments.</p>
+          <button class="btn" style="width: 30%; background-color:#4d5d84; color:#e0ddd5; border-color: #e0ddd5; border: 1px;">Learn More</button>
         </div>
-        <div class="img-card" style="background-image:url('https://i.ibb.co/7JgrQR6n/article-greece-santorini-sea-view.jpg')"></div>
+        <div class="img-card" style="background-image:url('https://lh3.google.com/u/0/d/1I3gxFNKY2QXtyAqoW52hMHv5jKW-NAX2=w1867-h983-iv2?auditContext=forDisplay')"></div>
       </div>
     </section>
 
@@ -257,7 +292,7 @@
       <div class="background-peek"></div>
       
       <div class="container">
-        <h2 style="text-align:center;color:var(--navy);margin-bottom:18px">Latest News</h2>
+        <h2 style="text-align:center;color: #e0ddd5;margin-bottom:18px">LATEST NEWS</h2>
         <div id="postsWrap" class="posts-grid" aria-live="polite"></div>
         <div class="see-more">
           <button class="btn" id="seeMoreBtn">See More</button>
@@ -285,7 +320,7 @@
         <div style="margin-bottom:12px"><label>Password</label><input type="password" id="loginPass" placeholder="Password"></div>
         <div style="display:flex;gap:8px">
           <button class="btn" id="loginBtn">Login</button>
-          <button class="icon-btn" id="backHome">Back</button>
+          <button class="icon-btn" id="backHome" style="color: #e0ddd5;">Back</button>
         </div>
       </div>
     </section>
@@ -320,7 +355,7 @@
     <div class="container">
       <div style="display:flex;justify-content:center;gap:12px;align-items:center;flex-wrap:wrap">
         <span class="small muted">© Simon Fraser University Greek Student Association</span>
-        <a id="adminLoginFooter">Admin Login</a>
+        <a id="adminLoginFooter" style="cursor:pointer">Admin Login</a>
       </div>
     </div>
   </footer>
@@ -386,27 +421,38 @@
       renderRecentPosts();
       renderAllPosts();
       renderAdminPosts();
+      
+      // Add event listener for admin login footer link
+      document.getElementById('adminLoginFooter').addEventListener('click', ()=> {
+        location.hash='login';
+      });
     });
 
     // Dropdown toggle
     function initDropdown(){
-      const drop = document.getElementById('aboutDropdown');
-      const menu = document.getElementById('aboutMenu');
-      drop.addEventListener('mouseenter', ()=>menu.style.display='flex');
-      drop.addEventListener('mouseleave', ()=>menu.style.display='none');
-      drop.addEventListener('click', ()=>menu.style.display = (menu.style.display==='flex'?'none':'flex'));
-      // close when clicking a menu link
-      document.querySelectorAll('.menu-link').forEach(a=>{
-        a.addEventListener('click', ()=> menu.style.display='none');
-      });
-    }
+  document.querySelectorAll('.dropdown').forEach(drop => {
+    const btn = drop.querySelector('.dropbtn');
+    const menu = drop.querySelector('.dropdown-menu');
+
+    btn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      // close all others first
+      document.querySelectorAll('.dropdown-menu').forEach(m=> m.style.display='none');
+      // toggle this one
+      menu.style.display = (menu.style.display==='flex'?'none':'flex');
+    });
+  });
+
+  // Close if click outside
+  document.addEventListener('click', ()=>{
+    document.querySelectorAll('.dropdown-menu').forEach(m=> m.style.display='none');
+  });
+}
+
 
     // Coming soon links
     document.getElementById('membershipBtn').addEventListener('click', ()=> location.hash='coming-soon');
-    document.getElementById('instTop').addEventListener('click', ()=> location.hash='coming-soon');
-    document.getElementById('heroInstaBtn').addEventListener('click', ()=> location.hash='coming-soon');
     document.getElementById('seeMoreBtn').addEventListener('click', ()=> location.hash='blog');
-    document.getElementById('adminLoginFooter').addEventListener('click', ()=> location.hash='login');
     document.getElementById('backHome').addEventListener('click', ()=> location.hash='home');
 
     // --- Posts storage (localStorage) ---
@@ -467,7 +513,7 @@
           <p>${escapeHtml(truncate(p.body||'',120))}</p>
           <div style="margin-top:8px;display:flex;justify-content:space-between;align-items:center">
             <small class="small muted">${timeAgo(p.ts)}</small>
-            <a href="#post:${p.id}" style="text-decoration:none;color:var(--blue);font-weight:600">Read</a>
+            <a href="#post:${p.id}" style="text-decoration:none;color:#e0ddd5;font-weight:600">Read</a>
           </div>
         `;
         postsWrap.appendChild(el);
@@ -492,9 +538,9 @@
             <h3 style="margin:0">${escapeHtml(p.headline)}</h3>
             <p class="small muted" style="margin:6px 0">${timeAgo(p.ts)}</p>
             <p style="margin:0">${escapeHtml(truncate(p.body,300))}</p>
-            <a href="#post:${p.id}" style="display:inline-block;margin-top:8px;color:var(--blue);font-weight:600">Read full</a>
+            <a href="#post:${p.id}" style="display:inline-block;margin-top:8px;color:#e0ddd5;font-weight:600">Read full</a>
           </div>
-          ${p.img?`<img src="${p.img}" alt="post image">`:'<div style="width:100px;height:70px;border-radius:6px;background:#f3f7ff;border:1px solid rgba(11,103,194,0.03)"></div>'}
+          ${p.img?`<img src="${p.img}" alt="post image">`:'<div style="width:100px;height:70px;border-radius:6px;background:#3a4869;border:1px solid rgba(255,255,255,0.1)"></div>'}
         `;
         all.appendChild(node);
       });
@@ -510,7 +556,7 @@
         const div = document.createElement('div');
         div.className = 'admin-post';
         div.innerHTML = `
-          ${p.img?`<img src="${p.img}" alt="">`:'<div style="width:100px;height:70px;border-radius:6px;background:#f3f7ff;border:1px solid rgba(11,103,194,0.03)"></div>'}
+          ${p.img?`<img src="${p.img}" alt="">`:'<div style="width:100px;height:70px;border-radius:6px;background:#3a4869;border:1px solid rgba(255,255,255,0.1)"></div>'}
           <div style="flex:1">
             <h4 style="margin:0">${escapeHtml(p.headline)}</h4>
             <p class="small muted" style="margin:6px 0">${timeAgo(p.ts)}</p>
@@ -574,17 +620,16 @@
 
     // Login behaviour
     document.getElementById('loginBtn').addEventListener('click', () => {
-  const user = document.getElementById('loginUser').value.trim();
-  const pass = document.getElementById('loginPass').value.trim();
+      const user = document.getElementById('loginUser').value.trim();
+      const pass = document.getElementById('loginPass').value.trim();
 
-  if (user === "Manoia" && pass === "2025") {
-    // ✅ Redirect to admin.html
-    window.location.href = "admin.html";
-  } else {
-    alert("Invalid username or password");
-  }
-});
-
+      if (user === "Manoia" && pass === "2025") {
+        // ✅ Redirect to admin.html
+        window.location.href = "admin.html";
+      } else {
+        alert("Invalid username or password");
+      }
+    });
 
     document.getElementById('logoutBtn').addEventListener('click', ()=> {
       sessionStorage.removeItem('gsa_admin');
@@ -602,7 +647,7 @@
       const blogPage = document.getElementById('blog');
       blogPage.style.display = 'block';
       blogPage.innerHTML = `
-        <div style="max-width:900px;margin:0 auto;padding:28px;background:var(--glass);border-radius:12px;border:1px solid rgba(11,103,194,0.04)">
+        <div style="max-width:900px;margin:0 auto;padding:28px;background:var(--glass);border-radius:12px;border:1px solid rgba(255,255,255,0.1)">
           <h1 style="margin-top:0">${escapeHtml(p.headline)}</h1>
           <p class="small muted">${timeAgo(p.ts)}</p>
           ${p.img?`<img src="${p.img}" style="width:100%;max-height:420px;object-fit:cover;border-radius:8px;margin-bottom:12px">`:''}

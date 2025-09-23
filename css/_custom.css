@@ -1,0 +1,77 @@
+/* ---------- Modal styles ---------- */
+.bcc-modal {
+  display: none;
+  position: fixed;
+  z-index: 100010;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.bcc-modal-content {
+  background-color: #004AAD;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  margin: 15% auto;
+  padding: 20px;
+  border: 7px solid #fff;
+  width: 80%;
+  max-width: 555px;
+  position: relative;
+  text-align: center;
+}
+
+.bcc-modal-content h2 {
+  text-transform: uppercase;
+  color:#fff;
+  margin: 0 0 10px;
+}
+
+.bcc-modal-content p {
+  font-size: 1.75rem;
+  color:#fff;
+  margin-bottom:1.75rem;
+}
+
+.bcc-modal-content a {
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  background-color: #FF1F1F;
+  padding: 9px 15px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.bcc-modal-content a:hover {
+  background-color: #51b6ff;
+}
+
+.bcc-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  line-height: 1;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.bcc-close:hover,
+.bcc-close:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Mediaqueries */
+@media screen and (max-width: 768px) {
+  .bcc-modal-content {
+    margin: 20% auto;
+  }
+}
+
+
